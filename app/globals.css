@@ -1,21 +1,30 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Box Model */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
+  /* Layout e Posicionamento */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Fundo e Estética */
+  background: url('https://cdn.pixabay.com/photo/2024/02/14/14/57/mountains-8573642_1280.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+
+main {
+  /* Reset e Box Model */
+  width: 320px;
+  height: 450px;
+  padding: 20px;
+  border-radius: 20px;
+  overflow-y: auto;
+
+  /* Fundo */
+  background: whitesmoke;
 }
