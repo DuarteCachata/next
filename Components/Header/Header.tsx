@@ -7,10 +7,10 @@ export default function Header() {
     <header className={styles.header}>
         <h1>React & Next.js</h1>
         <nav className={styles.nav}>
-        <ul>
-          <li><Link href="/">- Home</Link></li>
-          <li><Link href="/produtos">- Produtos</Link></li>
-          <li><Link href="/tecnologias">- Tecnologias</Link></li>
+        <ul >
+          <li className='transition-transform duration-200 hover:scale-105'><Link href="/">Home →</Link></li>
+          <li className='transition-transform duration-200 hover:scale-105'><Link href="/produtos">Produtos →</Link></li>
+          <li className='transition-transform duration-200 hover:scale-105'><Link href="/tecnologias">Tecnologias →</Link></li>
         </ul>
         </nav>
     </header>

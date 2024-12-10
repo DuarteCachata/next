@@ -10,7 +10,7 @@ export default function Card({
   rating,
 }: Product) {
   return (
-    <div className="bg-white border rounded-lg shadow-sm hover:shadow-lg transition-transform duration-200 hover:-translate-y-1 flex flex-col p-4 space-y-4">
+    <div className="bg-white border rounded-lg shadow-sm hover:shadow-lg transition-transform duration-200 hover:scale-105 flex flex-col p-4 space-y-4">
       <img
         src={image}
         alt={title}
