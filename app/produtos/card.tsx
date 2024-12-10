@@ -20,8 +20,8 @@ export default function Card({
       <p className="text-sm text-gray-500">{category}</p>
       <p className="text-sm text-gray-700 line-clamp-3">{description}</p>
       <div className="flex justify-between items-center border-t pt-4">
-        <span className="text-lg font-bold text-blue-500">{price.toFixed(2)}€</span>
-        <div className="flex items-center text-sm text-yellow-400">
+        <span className="text-lg font-bold text-gray-700">{price.toFixed(2)}€</span>
+        <div className="flex items-center text-sm text-gray-700">
           <span>{rating.rate}⭐</span>
           <span className="text-gray-500 ml-2">({rating.count})</span>
         </div>

@@ -6,11 +6,12 @@ import tecnologias from "@/app/data/tecnologias.json";
 
 export default function Page() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <section className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">Tecnologias</h1>
-      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <article className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {tecnologias.map((tec,index) => (
           <Card
+            key={index}
             id={index}
             title={tec.title}
             image={tec.image}
@@ -18,7 +19,7 @@ export default function Page() {
             rating={tec.rating}
           />
         ))}
-      </div>
-    </div>
+      </article>
+      </section>
   );
 }
