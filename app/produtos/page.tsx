@@ -140,9 +140,18 @@ export default function Page() {
       </article>
 
       <Btn
-  onOpen={() => setIsCartOpen(true)}
-  cartItemCount={cartItems.length}
-     /> 
+     onOpen={() => setIsCartOpen(true)}
+    cartItemCount={cartItems.length}
+    />
+    <Btn
+   onOpen={() => setIsCartOpen(true)}
+   cartItemCount={cartItems.length}
+   />
+<button
+  onClick={() => setIsCartOpen(true)}
+  className="fixed bottom-4 right-4 bg-blue-600 text-white py-3 px-6 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none z-50"
+>
+</button>
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}

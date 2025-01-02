@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 body {
+
   margin: 0;
   padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
   background: url('https://cdn.pixabay.com/photo/2024/02/14/14/57/mountains-8573642_1280.jpg');
   background-size: cover; 
   background-position: center; 
@@ -13,11 +21,14 @@ body {
 
 
 .home{
+    /* Reset e Box Model */
     width: 320px;
     height: 450px;
     padding: 20px;
     border-radius: 20px;
     overflow-y: auto;
+  
+    /* Fundo */
     background: whitesmoke;
 }
 
