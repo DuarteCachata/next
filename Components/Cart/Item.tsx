@@ -21,7 +21,7 @@ export function Item({
           <button onClick={() => onUpdateQuantity(id, quantity + 1)}>+</button>
         </div>
       </div>
-      <button onClick={() => onRemove(id)} className="text-red-500">
+      <button onClick={() => onRemove(id)} className="text-red-700">
         Remover
       </button>
     </div>

@@ -143,7 +143,6 @@ export default function Page() {
   onOpen={() => setIsCartOpen(true)}
   cartItemCount={cartItems.length}
      /> 
-     
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -154,72 +153,74 @@ export default function Page() {
         handlePurchase={() => setIsPurchaseModalOpen(true)}
       />
 
-      {isPurchaseModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-          <div className="bg-white rounded-xl p-8 max-w-md w-full shadow-xl">
-            <h2 className="text-3xl font-semibold mb-6 text-center">Finalizar Compra</h2>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700">Nome:</label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="mt-2 p-3 w-full border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700">Cupom de Desconto:</label>
-                <input
-                  type="text"
-                  value={coupon}
-                  onChange={(e) => setCoupon(e.target.value)}
-                  className="mt-2 p-3 w-full border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div className="mb-6 flex items-center">
-                <input
-                  type="checkbox"
-                  checked={isStudent}
-                  onChange={(e) => setIsStudent(e.target.checked)}
-                  className="mr-2"
-                />
-                <label className="text-sm text-gray-700">Sou estudante</label>
-              </div>
-              <div className="mt-6 flex justify-between">
-                <button
-                  onClick={() => setIsPurchaseModalOpen(false)}
-                  className="bg-gray-200 text-gray-700 hover:bg-gray-300 py-2 px-6 rounded-lg"
-                >
-                  Fechar
-                </button>
-                <button
-                  onClick={handlePurchase}
-                  className="bg-blue-600 text-white hover:bg-blue-700 py-2 px-6 rounded-lg"
-                >
-                  Confirmar Compra
-                </button>
-              </div>
-            </form>
-          </div>
+{isPurchaseModalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center transition-all duration-300">
+    <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl transform scale-95 hover:scale-100 transition-transform duration-300 ease-in-out">
+      <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">Finalizar Compra</h2>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-700">Nome:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="mt-2 p-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            required
+          />
         </div>
-      )}
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-700">Cupom de Desconto:</label>
+          <input
+            type="text"
+            value={coupon}
+            onChange={(e) => setCoupon(e.target.value)}
+            className="mt-2 p-4 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          />
+        </div>
+        <div className="mb-6 flex items-center">
+          <input
+            type="checkbox"
+            checked={isStudent}
+            onChange={(e) => setIsStudent(e.target.checked)}
+            className="mr-2 h-4 w-4 text-blue-600 border-gray-300 rounded"
+          />
+          <label className="text-sm text-gray-700">Sou estudante</label>
+        </div>
+        <div className="mt-6 flex justify-between">
+          <button
+            onClick={() => setIsPurchaseModalOpen(false)}
+            className="bg-gray-200 text-gray-700 hover:bg-gray-300 py-2 px-6 rounded-lg transition-colors duration-200"
+          >
+            Fechar
+          </button>
+          <button
+            onClick={handlePurchase}
+            className="bg-blue-600 text-white hover:bg-blue-700 py-2 px-6 rounded-lg shadow-md transition-all duration-200"
+          >
+            Confirmar Compra
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
 
-      {purchaseResult.reference && (
-        <div className="mt-8 p-6 border border-green-200 bg-green-100 rounded-lg shadow-xl">
-          <h3 className="text-2xl font-semibold">Compra Finalizada!</h3>
-          <p className="mt-3"><strong>Total:</strong> {purchaseResult.totalCost}€</p>
-          <p className="mt-3"><strong>Referência:</strong> {purchaseResult.reference}</p>
-          <p className="mt-3 p-4 border border-x-8 border-y-2 text-center border-gray-900 bg-gray-100 rounded-lg shadow-2xl"><strong>{purchaseResult.message}</strong></p>
-        </div>
-      )}
+{purchaseResult.reference && (
+  <div className="mt-8 p-6 border border-green-200 bg-gradient-to-r from-green-100 to-green-200 rounded-lg shadow-xl">
+    <h3 className="text-2xl font-semibold text-green-700">Compra Finalizada!</h3>
+    <p className="mt-3 text-green-800"><strong>Total:</strong> {purchaseResult.totalCost}€</p>
+    <p className="mt-3 text-green-800"><strong>Referência:</strong> {purchaseResult.reference}</p>
+    <p className="mt-3 p-4 border border-green-300 bg-green-50 rounded-lg shadow-lg text-center text-green-600">
+      <strong>{purchaseResult.message}</strong>
+    </p>
+  </div>
+)}
 
-      {purchaseResult.error && (
-        <div className="mt-8 p-6 border border-red-200 bg-red-100 rounded-lg shadow-xl">
-          <p className="text-red-600 text-lg">{purchaseResult.error}</p>
-        </div>
-      )}
+{purchaseResult.error && (
+  <div className="mt-8 p-6 border border-red-200 bg-gradient-to-r from-red-100 to-red-200 rounded-lg shadow-xl">
+    <p className="text-red-600 text-lg font-semibold">{purchaseResult.error}</p>
+  </div>
+)}
     </section>
   );
 }
