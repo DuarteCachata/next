@@ -140,10 +140,10 @@ export default function Page() {
       </article>
 
       <Btn
-        onOpen={() => setIsCartOpen(true)}
-        cartItemCount={cartItems.length}
-      />
-
+  onOpen={() => setIsCartOpen(true)}
+  cartItemCount={cartItems.length}
+     /> 
+     
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
